@@ -16,7 +16,7 @@ export default function AllPosts() {
      return (
           <div>
                <SearchBar />
-               <h1>Welcome to AB's List, your one stop used item shop!</h1>
+               <h1>Welcome to AB List, your one stop used item shop!</h1>
                {posts.map((post) => {
                     return (
                          <div key={post._id}>

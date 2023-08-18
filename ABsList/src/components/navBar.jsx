@@ -14,6 +14,8 @@ export default function NavBar() {
                     My Posts
                </Link>
 
+               <Link to="/newpost">New Post</Link>
+
                <Link to="/login">Login</Link>
           </div>
      );

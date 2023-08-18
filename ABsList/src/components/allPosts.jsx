@@ -3,7 +3,6 @@ import { fetchAllPosts } from "../../services/88index";
 
 export default function AllPosts() {
      const [posts, setPosts] = useState([]);
-     console.log("hi from line 7");
 
      async function usefulPosts() {
           let postArray = await fetchAllPosts();
@@ -12,7 +11,7 @@ export default function AllPosts() {
      useEffect(() => {
           usefulPosts();
      }, []);
-     console.log(posts);
+
      return posts.map((post) => {
           return (
                <div key={post._id}>

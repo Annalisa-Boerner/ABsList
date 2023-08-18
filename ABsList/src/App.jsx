@@ -6,20 +6,20 @@ import NavBar from "./components/navBar";
 import SearchBar from "./components/searchBar";
 import AllPosts from "./components/allPosts";
 import Login from "./components/login";
-import Home from "./components/homepage";
-import SinglePost from "./components/singlePost";
+import MyPosts from "./components/myPosts";
+import { fetchSinglePost } from "../services/88index";
 
 function App() {
+     fetchSinglePost("64de73d01430250014e78563");
      return (
           <>
                <NavBar />
-               <SearchBar />
 
                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/posts" element={<AllPosts />} />
+                    <Route path="/" element={<AllPosts />} />
+                    {/* <Route path="/posts" element={<AllPosts />} /> */}
                     <Route path="/login" element={<Login />} />
-                    <Route path="/players/:_id" element={<SinglePost />} />
+                    <Route path="/myposts" element={<MyPosts />} />
                </Routes>
                {/* <AllPosts /> */}
                {/* <Form />

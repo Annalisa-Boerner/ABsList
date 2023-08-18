@@ -10,3 +10,14 @@ export async function fetchAllPosts() {
           console.error(error);
      }
 }
+
+export async function fetchSinglePost(id) {
+     try {
+          const response = await fetch(`${base_url}/posts/${id}`);
+          const result = await response.json();
+          console.log(result);
+          return result.data;
+     } catch (error) {
+          console.error(error);
+     }
+}

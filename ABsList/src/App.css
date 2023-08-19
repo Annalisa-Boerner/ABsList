@@ -14,3 +14,7 @@
 .card {
      padding: 2em;
 }
+
+.formStyles {
+     outline: 2 px solid blue;
+}

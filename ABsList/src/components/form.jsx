@@ -10,13 +10,14 @@ export default function NewPost({ posts, setPosts }) {
      const onChange = () => setWilldeliver(!willDeliver);
 
      //needs all the API call language here
+     //handlesubmit function
      return (
           <section>
                <h2>New Item Submission Form:</h2>
                <form className="formStyles">
                     {error && (
                          <p>
-                              We are sorry, there has been an error with your
+                              We're sorry, there's been an error with your
                               submission. Please try again l8r.
                          </p>
                     )}

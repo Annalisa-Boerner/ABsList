@@ -13,7 +13,7 @@ import MyPosts from "./components/myPosts";
 function App() {
      return (
           <>
-               <NavBar />
+               <NavBar id='navbar' />
 
                <Routes>
                     <Route path="/" element={<AllPosts />} />

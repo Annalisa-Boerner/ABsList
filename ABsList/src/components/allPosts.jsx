@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { fetchAllPosts } from "../../services/apiCalls";
+import { useNavigate } from "react-router-dom";
 
-export default function AllPosts() {
+export default function AllPosts({ setPostId }) {
      const [posts, setPosts] = useState([]);
      const [searchParam, setSearchParam] = useState("");
+     const navigate = useNavigate;
 
      async function usefulPosts() {
           let postArray = await fetchAllPosts();
@@ -18,6 +20,11 @@ export default function AllPosts() {
                  post.title.toLowerCase().includes(searchParam)
             )
           : posts;
+
+     function handleClick() {
+          setPostId(posts._id);
+          navigate(`/editpost`);
+     }
 
      return (
           <div>
@@ -43,6 +50,7 @@ export default function AllPosts() {
                               <p>Description: {post.description}</p>
                               <p>Price: {post.price}</p>
                               <p>Location: {post.location}</p>
+                              <button onClick={handleClick}>Edit Post</button>
                          </div>
                     );
                })}

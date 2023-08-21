@@ -10,9 +10,9 @@ export default function NavBar() {
                     Home
                </Link>
 
-               <Link to="/myposts" element={<MyPosts />}>
+               {/* <Link to="/myposts" element={<MyPosts />}>
                     My Posts
-               </Link>
+               </Link> */}
 
                <Link to="/newpost">New Post</Link>
 

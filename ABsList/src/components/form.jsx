@@ -21,16 +21,11 @@ export default function NewPost() {
           );
           if (APIData.success) {
                console.log("New Item: ", APIData.data.NewPost);
-
-               // const newPostList = [...posts, APIData.data.newPost];
-               // setPosts(newPostList);
           } else {
                setError(APIData.error.message);
           }
      }
 
-     //needs all the API call language here
-     //handlesubmit function
      return (
           <section>
                <h2>New Item Submission Form:</h2>

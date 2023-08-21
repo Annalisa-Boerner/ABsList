@@ -56,3 +56,35 @@ export async function createPost(
           console.error(error);
      }
 }
+
+export async function editPost(
+     title,
+     description,
+     price,
+     location,
+     willDeliver
+) {
+     try {
+          const response = await fetch(`${base_url}/posts/${post._id}`, {
+               method: "PATCH",
+               headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`,
+               },
+               body: JSON.stringify({
+                    post: {
+                         title,
+                         description,
+                         price,
+                         location,
+                         willDeliver,
+                    },
+               }),
+          });
+          const result = await response.json();
+          console.log(result);
+          return result;
+     } catch (error) {
+          console.error(error);
+     }
+}

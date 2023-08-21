@@ -36,11 +36,13 @@ export async function createPost(
                     "Content-Type": "application/json",
                },
                body: JSON.stringify({
-                    title,
-                    description,
-                    price,
-                    location,
-                    willDeliver,
+                    post: {
+                         title,
+                         description,
+                         price,
+                         location,
+                         willDeliver,
+                    },
                }),
           });
           const result = await response.json();

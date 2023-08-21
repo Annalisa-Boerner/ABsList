@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { createPost } from "../../services/apiCalls";
 
-export default function NewPost({ posts, setPosts }) {
+export default function NewPost() {
      const [title, setTitle] = useState("");
      const [price, setPrice] = useState("");
      const [location, setLocation] = useState("");
@@ -9,12 +10,31 @@ export default function NewPost({ posts, setPosts }) {
      const [error, setError] = useState(null);
      const onChange = () => setWilldeliver(!willDeliver);
 
+     async function handleSubmit(event) {
+          event.preventDefault();
+          const APIData = await createPost(
+               title,
+               price,
+               location,
+               description,
+               willDeliver
+          );
+          if (APIData.success) {
+               console.log("New Item: ", APIData.data.NewPost);
+
+               // const newPostList = [...posts, APIData.data.newPost];
+               // setPosts(newPostList);
+          } else {
+               setError(APIData.error.message);
+          }
+     }
+
      //needs all the API call language here
      //handlesubmit function
      return (
           <section>
                <h2>New Item Submission Form:</h2>
-               <form className="formStyles">
+               <form className="formStyles" onSubmit={handleSubmit}>
                     {error && (
                          <p>
                               We're sorry, there's been an error with your

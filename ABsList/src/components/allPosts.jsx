@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { fetchAllPosts } from "../../services/88index";
+import { fetchAllPosts } from "../../services/apiCalls";
 import SearchBar from "./searchBar";
 
 export default function AllPosts() {

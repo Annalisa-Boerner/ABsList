@@ -22,6 +22,9 @@ export async function fetchAllPosts() {
 //      }
 // }
 
+let token =
+     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGUzODgwNDJjMjc1MDAwMTQ4Y2ZlNmQiLCJ1c2VybmFtZSI6ImJhZGdlciIsImlhdCI6MTY5MjYzMzA5Mn0.tnmzbv2LRNShm6DfMj9GM6VZ5k9b3jxRwQkdFjEJMLY";
+
 export async function createPost(
      title,
      description,
@@ -34,6 +37,7 @@ export async function createPost(
                method: "POST",
                headers: {
                     "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`,
                },
                body: JSON.stringify({
                     post: {

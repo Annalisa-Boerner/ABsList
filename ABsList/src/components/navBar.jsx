@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import AllPosts from "./allPosts";
-import MyPosts from "./myPosts";
+
 
 export default function NavBar() {
      return (
@@ -10,9 +10,6 @@ export default function NavBar() {
                     Home
                </Link>
 
-               {/* <Link to="/myposts" element={<MyPosts />}>
-                    My Posts
-               </Link> */}
 
                <Link to="/newpost">New Post</Link>
 

@@ -3,11 +3,11 @@ const cohort_name = "2306-GHP-ET-WEB-FT-SF";
 const base_url = `https://strangers-things.herokuapp.com/api/${cohort_name}`;
 import { useNavigate } from "react-router-dom";
 import App from './../App'
-import editPost from "./../../services/apiCalls"
+import {editPost} from "./../../services/apiCalls"
 
 
-//attempt to edit a post based on the postId, which I hoped to deconstruct from props from App
-export default function EditPost({ postId }) {
+//I wanted to edit a post based on postId, which I hoped to deconstruct from props from App - attempted this in the next line but I wasn't passing props correctly. The idea was to have setPostId in the AllPosts - but, again, same issue. and without a single post get I didn't think I could just mimic puppy bowl
+export default function EditPost() {
      const [title, setTitle] = useState("");
      const [price, setPrice] = useState("");
      const [location, setLocation] = useState("");
@@ -17,10 +17,6 @@ export default function EditPost({ postId }) {
      const onChange = () => setWilldeliver(!willDeliver);
 
 
-     //API CALL USING PROPS TO CREATE DYNAMIC URL
-     let token =
-"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGUzODgwNDJjMjc1MDAwMTQ4Y2ZlNmQiLCJ1c2VybmFtZSI6ImJhZGdlciIsImlhdCI6MTY5MjYzMzA5Mn0.tnmzbv2LRNShm6DfMj9GM6VZ5k9b3jxRwQkdFjEJMLY";
-
      
 
      //HANDLESUBMIT THAT CALLS THE EDIT API REQUEST ON SUBMIT
@@ -28,7 +24,6 @@ export default function EditPost({ postId }) {
      async function handleSubmit(event) {
           event.preventDefault();
           const APIData = await editPost(
-               postId,
                title,
                price,
                location,
@@ -101,9 +96,10 @@ export default function EditPost({ postId }) {
                          checked={willDeliver}
                          onChange={onChange}
                     />
-                    <label> Will Deliver</label>
+                    <label> Will Deliver</label><br />
                     <br />
-                    <br />
+
+                    
                     <button>Submit</button>
                </form>
           </section>

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { createPost } from "../../services/apiCalls";
+import { useNavigate } from "react-router-dom";
 
 export default function NewPost() {
      const [title, setTitle] = useState("");
@@ -9,6 +10,7 @@ export default function NewPost() {
      const [willDeliver, setWilldeliver] = useState(false);
      const [error, setError] = useState(null);
      const onChange = () => setWilldeliver(!willDeliver);
+     const navigate = useNavigate();
 
      async function handleSubmit(event) {
           event.preventDefault();
@@ -20,7 +22,7 @@ export default function NewPost() {
                willDeliver
           );
           if (APIData.success) {
-               console.log("New Item: ", APIData.data.NewPost);
+               navigate('/');
           } else {
                setError(APIData.error.message);
           }
@@ -29,6 +31,7 @@ export default function NewPost() {
      return (
           <section>
                <h2>New Item Submission Form:</h2>
+               <h4>(Redirects on success)</h4>
                <form className="formStyles" onSubmit={handleSubmit}>
                     {error && (
                          <p>

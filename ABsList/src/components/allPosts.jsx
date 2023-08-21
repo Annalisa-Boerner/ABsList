@@ -3,8 +3,9 @@ import { fetchAllPosts } from "../../services/apiCalls";
 import { useNavigate } from "react-router-dom";
 import React from "react";
 import App from "./../App"
+import { deletePost } from "../../services/apiCalls";
 
-//allpost rendering, where I hoped to setPostId via props so that they could be shared with editForm
+//AllPost rendering, where I hoped to setPostId via props so that they could be shared with editForm
 export default function AllPosts({ setPostId}) {
      const [posts, setPosts] = useState([]);
      const [searchParam, setSearchParam] = useState("");
@@ -27,7 +28,8 @@ export default function AllPosts({ setPostId}) {
 
 
      function handleDelete() {
-          console.log("hi i'm a placeholder")
+          deletePost();
+          AllPosts()
      }
 
      return (

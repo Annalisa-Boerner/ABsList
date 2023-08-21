@@ -57,15 +57,18 @@ export async function createPost(
      }
 }
 
-export async function editPost(
+
+
+async function editPost(
      title,
      description,
      price,
      location,
-     willDeliver
+     willDeliver,
+     postId
 ) {
      try {
-          const response = await fetch(`${base_url}/posts/${post._id}`, {
+          const response = await fetch(`${base_url}/posts/${postId}`, {
                method: "PATCH",
                headers: {
                     "Content-Type": "application/json",

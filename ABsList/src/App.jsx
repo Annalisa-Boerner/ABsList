@@ -1,9 +1,9 @@
 //test comment for github
-
+import React from "react";
+import { PropTypes } from "prop-types";
 import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-// import Form from "./components/form";
 import NavBar from "./components/navBar";
 import NewPost from "./components/form";
 import AllPosts from "./components/allPosts";

@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { fetchAllPosts } from "../../services/apiCalls";
 import { useNavigate } from "react-router-dom";
+import React from "react";
 
-export default function AllPosts({ setPostId }) {
+export default function AllPosts() {
      const [posts, setPosts] = useState([]);
      const [searchParam, setSearchParam] = useState("");
-     const navigate = useNavigate;
+     const navigate = useNavigate();
 
      async function usefulPosts() {
           let postArray = await fetchAllPosts();
@@ -22,7 +23,6 @@ export default function AllPosts({ setPostId }) {
           : posts;
 
      function handleClick() {
-          setPostId(posts._id);
           navigate(`/editpost`);
      }
 

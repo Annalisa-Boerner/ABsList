@@ -4,9 +4,11 @@ import { useNavigate } from "react-router-dom";
 import React from "react";
 import App from "./../App";
 import { deletePost } from "../../services/apiCalls";
+import Post from "./post";
+import EditPost from "./editPost";
 
 //AllPost rendering, where I hoped to setPostId via props so that they could be shared with editForm
-export default function AllPosts({ setPostId }) {
+export default function AllPosts({ token }) {
      const [posts, setPosts] = useState([]);
      const [searchParam, setSearchParam] = useState("");
      const navigate = useNavigate();
@@ -49,10 +51,11 @@ export default function AllPosts({ setPostId }) {
                </div>
                {postsToDisplay.map((post) => {
                     const author = post.isAuthor.toString();
+                    // const postIdAP = post._id;
 
                     function handleClick() {
                          navigate(`/editpost`);
-                         setPostId(post._id);
+                         // setPostId(post._id);
                     }
 
                     return (
@@ -61,8 +64,8 @@ export default function AllPosts({ setPostId }) {
                               <p>Description: {post.description}</p>
                               <p>Price: {post.price}</p>
                               <p>Location: {post.location}</p>
+                              <EditPost post={post} token={token} />
                               <div>
-                                   {/* attempt at conditional rendering of edit button; without toString was getting no render even though it was a boolean */}
                                    {author ? (
                                         <>
                                              <button onClick={handleClick}>
@@ -76,10 +79,6 @@ export default function AllPosts({ setPostId }) {
                                         <button>Send Message</button>
                                    )}
                               </div>
-                              {/* {console.log(
-                                   "this is the current token in the allPosts return: ",
-                                   token
-                              )} */}
                          </div>
                     );
                })}

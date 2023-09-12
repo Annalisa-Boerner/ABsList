@@ -1,13 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 const cohort_name = "2306-GHP-ET-WEB-FT-SF";
 const base_url = `https://strangers-things.herokuapp.com/api/${cohort_name}`;
+import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import App from './../App'
-import {editPost} from "./../../services/apiCalls"
+import { editPost } from "../../services/apiCalls";
 
-
-//I wanted to edit a post based on postId, which I hoped to deconstruct from props from App - attempted this in the next line but I wasn't passing props correctly. The idea was to have setPostId in the AllPosts - but, again, same issue. and without a single post get I didn't think I could just mimic puppy bowl
-export default function EditPost() {
+export default function EditPost({ post, token }) {
      const [title, setTitle] = useState("");
      const [price, setPrice] = useState("");
      const [location, setLocation] = useState("");
@@ -16,25 +14,21 @@ export default function EditPost() {
      const [error, setError] = useState(null);
      const onChange = () => setWilldeliver(!willDeliver);
 
-
-     
+     const nav = useNavigate();
 
      //HANDLESUBMIT THAT CALLS THE EDIT API REQUEST ON SUBMIT
 
      async function handleSubmit(event) {
           event.preventDefault();
-          const APIData = await editPost(
-               title,
-               price,
-               location,
-               description,
-               willDeliver
-          );
-          if (APIData.success) {
-               console.log("Edited Item: ", APIData.data.NewPost);
-          } else {
-               setError(APIData.error.message);
-          }
+          // console.log("line 25 ", post);
+          const updatedPost = {
+               post: { title, description, price, location, willDeliver },
+          };
+          // console.log("updatedPost ", updatedPost);
+          // console.log("line 31", post._id);
+          const editedPost = await editPost(post._id, updatedPost, token);
+          // console.log("API response in line 32: ", editedPost);
+          nav("/");
      }
      //FORM FOR EDITING
      return (
@@ -96,10 +90,10 @@ export default function EditPost() {
                          checked={willDeliver}
                          onChange={onChange}
                     />
-                    <label> Will Deliver</label><br />
+                    <label> Will Deliver</label>
+                    <br />
                     <br />
 
-                    
                     <button>Submit</button>
                </form>
           </section>

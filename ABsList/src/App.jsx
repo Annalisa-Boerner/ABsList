@@ -7,7 +7,7 @@ import AllPosts from "./components/allPosts";
 import Login from "./components/login";
 import Register from "./components/register";
 // import MyPosts from "./components/myPosts";
-import EditPost from "./components/editForm";
+import EditPost from "./components/editPost";
 
 function App() {
      // const [postId, setPostId] = useState("");

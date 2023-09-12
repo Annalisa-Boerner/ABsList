@@ -1,5 +1,3 @@
-//test comment for github
-
 import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
@@ -11,22 +9,29 @@ import Login from "./components/login";
 import EditPost from "./components/editForm";
 
 function App() {
-     const [postId, setPostId] = useState("");
-     <>
-          <AllPosts postId={postId} setPostId={setPostId} />
-          <EditPost postId={postId} setPostId={setPostId} />
-     </>;
+     // const [postId, setPostId] = useState("");
+
+     const [token, setToken] = useState("");
+
      return (
           <>
                <NavBar id="navbar" />
 
                <Routes>
-                    <Route path="/" element={<AllPosts />} />
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/newpost" element={<NewPost />} />
-                    <Route path="/editpost" element={<EditPost />} />
+                    <Route path="/" element={<AllPosts token={token} />} />
+                    <Route
+                         path="/login"
+                         element={<Login setToken={setToken} />}
+                    />
+                    <Route
+                         path="/newpost"
+                         element={<NewPost token={token} />}
+                    />
+                    <Route
+                         path="/editpost"
+                         element={<EditPost token={token} />}
+                    />
                </Routes>
-
           </>
      );
 }

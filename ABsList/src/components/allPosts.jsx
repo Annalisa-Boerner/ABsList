@@ -1,17 +1,18 @@
 import { useState, useEffect } from "react";
 import { fetchAllPosts } from "../../services/apiCalls";
-import { useNavigate } from "react-router-dom";
-import React from "react";
-import App from "./../App";
-import { deletePost } from "../../services/apiCalls";
-import Post from "./post";
+// import { useNavigate } from "react-router-dom";
+// import React from "react";
+// import App from "./../App";
+// import { deletePost } from "../../services/apiCalls";
+// import Post from "./post";
 import EditPost from "./editPost";
+import DeletePost from "./deletePost";
 
 //AllPost rendering, where I hoped to setPostId via props so that they could be shared with editForm
 export default function AllPosts({ token }) {
      const [posts, setPosts] = useState([]);
      const [searchParam, setSearchParam] = useState("");
-     const navigate = useNavigate();
+     // const navigate = useNavigate();
 
      async function usefulPosts() {
           let postArray = await fetchAllPosts();
@@ -26,11 +27,6 @@ export default function AllPosts({ token }) {
                  post.title.toLowerCase().includes(searchParam)
             )
           : posts;
-
-     function handleDelete() {
-          deletePost();
-          // navigate('/')
-     }
 
      return (
           <div>
@@ -50,12 +46,6 @@ export default function AllPosts({ token }) {
                     </label>
                </div>
                {postsToDisplay.map((post) => {
-                    // const author = post.isAuthor.toString();
-
-                    function handleClick() {
-                         navigate(`/editpost`);
-                    }
-
                     return (
                          <div key={post._id}>
                               <h2>Title: {post.title}</h2>
@@ -63,9 +53,7 @@ export default function AllPosts({ token }) {
                               <p>Price: {post.price}</p>
                               <p>Location: {post.location}</p>
                               <EditPost post={post} token={token} />
-                              <button onClick={handleDelete}>
-                                   Delete Post
-                              </button>
+                              <DeletePost post={post} token={token} />
                          </div>
                     );
                })}

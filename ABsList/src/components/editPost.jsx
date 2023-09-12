@@ -1,7 +1,4 @@
-import { useEffect, useState } from "react";
-const cohort_name = "2306-GHP-ET-WEB-FT-SF";
-const base_url = `https://strangers-things.herokuapp.com/api/${cohort_name}`;
-import { useLocation } from "react-router-dom";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { editPost } from "../../services/apiCalls";
 
@@ -24,10 +21,7 @@ export default function EditPost({ post, token }) {
           const updatedPost = {
                post: { title, description, price, location, willDeliver },
           };
-          // console.log("updatedPost ", updatedPost);
-          // console.log("line 31", post._id);
           const editedPost = await editPost(post._id, updatedPost, token);
-          // console.log("API response in line 32: ", editedPost);
           nav(0);
      }
      //FORM FOR EDITING

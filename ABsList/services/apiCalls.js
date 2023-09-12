@@ -83,7 +83,7 @@ export const deletePost = async (postId, token) => {
           console.log(result);
           return result;
      } catch (error) {
-          alert(
+          console.error(
                "We're sorry, there was an error during deletion. Please try again."
           );
      }

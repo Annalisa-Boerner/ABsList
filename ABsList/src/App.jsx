@@ -8,6 +8,7 @@ import Login from "./components/login";
 import Register from "./components/register";
 // import MyPosts from "./components/myPosts";
 import EditPost from "./components/editForm";
+import NewPost from "./components/form";
 
 function App() {
      // const [postId, setPostId] = useState("");
@@ -35,6 +36,10 @@ function App() {
                     <Route
                          path="/editpost"
                          element={<EditPost token={token} />}
+                    />
+                    <Route
+                         path="/postform"
+                         element={<NewPost token={token} />}
                     />
                </Routes>
           </>

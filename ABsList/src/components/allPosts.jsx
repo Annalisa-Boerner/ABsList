@@ -50,12 +50,10 @@ export default function AllPosts({ token }) {
                     </label>
                </div>
                {postsToDisplay.map((post) => {
-                    const author = post.isAuthor.toString();
-                    // const postIdAP = post._id;
+                    // const author = post.isAuthor.toString();
 
                     function handleClick() {
                          navigate(`/editpost`);
-                         // setPostId(post._id);
                     }
 
                     return (
@@ -65,20 +63,9 @@ export default function AllPosts({ token }) {
                               <p>Price: {post.price}</p>
                               <p>Location: {post.location}</p>
                               <EditPost post={post} token={token} />
-                              <div>
-                                   {author ? (
-                                        <>
-                                             <button onClick={handleClick}>
-                                                  Edit Post
-                                             </button>{" "}
-                                             <button onClick={handleDelete}>
-                                                  Delete Post
-                                             </button>
-                                        </>
-                                   ) : (
-                                        <button>Send Message</button>
-                                   )}
-                              </div>
+                              <button onClick={handleDelete}>
+                                   Delete Post
+                              </button>
                          </div>
                     );
                })}

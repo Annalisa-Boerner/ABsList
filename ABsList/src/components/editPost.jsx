@@ -28,12 +28,12 @@ export default function EditPost({ post, token }) {
           // console.log("line 31", post._id);
           const editedPost = await editPost(post._id, updatedPost, token);
           // console.log("API response in line 32: ", editedPost);
-          nav("/");
+          nav(0);
      }
      //FORM FOR EDITING
      return (
           <section>
-               <h2>Edit item:</h2>
+               <h3>Edit item:</h3>
                <form className="formStyles" onSubmit={handleSubmit}>
                     {error && (
                          <p>

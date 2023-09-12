@@ -1,1 +1,13 @@
 -need to write a login route: can't log in twice because it's actually a register components
+               {/* <h1>All Posts</h1>
+               <input
+                    placeholder="Serach by Title"
+                    onChange={(event) => {
+                         search(event.target.value);
+                    }}
+                    type="text"
+               />
+               <EditPost setPosts={setPosts} posts={posts} token={token} />
+               {posts.map((post) => {
+                    return <Post key={post.id} post={post} token={token} />;
+               })} */}

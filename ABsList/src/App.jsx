@@ -5,6 +5,7 @@ import NavBar from "./components/navBar";
 import NewPost from "./components/form";
 import AllPosts from "./components/allPosts";
 import Login from "./components/login";
+import Register from "./components/register";
 // import MyPosts from "./components/myPosts";
 import EditPost from "./components/editForm";
 
@@ -22,6 +23,10 @@ function App() {
                     <Route
                          path="/login"
                          element={<Login setToken={setToken} />}
+                    />
+                    <Route
+                         path="/register"
+                         element={<Register setToken={setToken} />}
                     />
                     <Route
                          path="/newpost"

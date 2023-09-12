@@ -4,7 +4,7 @@ const base_url = `https://strangers-things.herokuapp.com/api/${cohort_name}`;
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function Login({ setToken }) {
+export default function Register({ setToken }) {
      const [username, setUsername] = useState("");
      const [password, setPassword] = useState("");
      const [error, setError] = useState(null);
@@ -15,7 +15,7 @@ export default function Login({ setToken }) {
           console.log("motherfucking button time");
           try {
                const response = await fetch(
-                    `${base_url}/users/login`,
+                    `${base_url}/users/register`,
 
                     {
                          method: "POST",

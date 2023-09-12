@@ -27,6 +27,7 @@ body {
      /* margin: 0; */
      display: flex;
      place-items: center;
+     justify-content: space-evenly;
      min-width: 320px;
      min-height: 100vh;
 }
@@ -70,7 +71,7 @@ button:focus-visible {
 
 #navbar {
      display: flex;
-     justify-content: space-around;
+     justify-content: space-between;
      align-items: center;
      margin: 4rem;
 }

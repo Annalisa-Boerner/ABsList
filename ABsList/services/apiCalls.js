@@ -57,7 +57,7 @@ export async function createPost(
      }
 }
 
-//hardcoded to edit exactly one post, lol (because my props experiments in jsx failed). search thunder
+//hardcoded to edit exactly one post, lol (because my props experiments in jsx failed). search thunder for editable post
 
 export async function editPost(
           title,
@@ -93,6 +93,7 @@ export async function editPost(
           }
      }
 
+     //again, hard coded for just one post
 export const deletePost = async () => {
      let delete_id = '64e3e7bc555d2f00149d3917'
 

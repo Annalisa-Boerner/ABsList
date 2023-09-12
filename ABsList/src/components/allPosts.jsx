@@ -29,7 +29,7 @@ export default function AllPosts({ setPostId}) {
 
      function handleDelete() {
           deletePost();
-          AllPosts()
+          // navigate('/')
      }
 
      return (

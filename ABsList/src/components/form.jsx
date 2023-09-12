@@ -1,3 +1,8 @@
+//worked until 7 pm when it suddenly broke; previous version shopping on github didn't get me past this error: 
+
+// error: {name: 'ValidationError', message: 'Post validation failed: price: Path `price` is required.'}
+
+
 import { useState } from "react";
 import { createPost } from "../../services/apiCalls";
 import { useNavigate } from "react-router-dom";

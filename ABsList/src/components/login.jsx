@@ -2,12 +2,14 @@ const cohort_name = "2306-GHP-ET-WEB-FT-SF";
 const base_url = `https://strangers-things.herokuapp.com/api/${cohort_name}`;
 
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
      const [username, setUsername] = useState("");
      const [password, setPassword] = useState("");
      const [error, setError] = useState(null);
 
+     const navigate = useNavigate();
      async function handleSubmit(event) {
           event.preventDefault();
           console.log("motherfucking button time");
@@ -30,6 +32,7 @@ export default function Login() {
                );
                const result = await response.json();
                console.log(result);
+               navigate("/");
           } catch (error) {
                setError(error.message);
           }

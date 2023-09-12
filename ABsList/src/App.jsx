@@ -2,13 +2,12 @@ import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import NavBar from "./components/navBar";
-import NewPost from "./components/form";
+import NewPost from "./components/newPost";
 import AllPosts from "./components/allPosts";
 import Login from "./components/login";
 import Register from "./components/register";
 // import MyPosts from "./components/myPosts";
 import EditPost from "./components/editForm";
-import NewPost from "./components/form";
 
 function App() {
      // const [postId, setPostId] = useState("");
@@ -38,7 +37,7 @@ function App() {
                          element={<EditPost token={token} />}
                     />
                     <Route
-                         path="/postform"
+                         path="/newpost"
                          element={<NewPost token={token} />}
                     />
                </Routes>

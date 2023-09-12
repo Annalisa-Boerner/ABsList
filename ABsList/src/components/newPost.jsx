@@ -1,36 +1,37 @@
-//worked until 7 pm when it suddenly broke; previous version shopping on github didn't get me past this error: 
+//worked until 7 pm when it suddenly broke; previous version shopping on github didn't get me past this error:
 
 // error: {name: 'ValidationError', message: 'Post validation failed: price: Path `price` is required.'}
 
-
 import { useState } from "react";
-import { createPost } from "../../services/apiCalls";
-import { useNavigate } from "react-router-dom";
+import { createPost, fetchAllPosts } from "../../services/apiCalls";
+// import { useNavigate } from "react-router-dom";
 
-export default function NewPost() {
+export default function NewPost({ setPosts, token }) {
      const [title, setTitle] = useState("");
      const [price, setPrice] = useState("");
      const [location, setLocation] = useState("");
      const [description, setDescription] = useState("");
      const [willDeliver, setWilldeliver] = useState(false);
-     const [error, setError] = useState(null);
+     // const [error, setError] = useState(null);
      const onChange = () => setWilldeliver(!willDeliver);
-     const navigate = useNavigate();
+     // const navigate = useNavigate();
 
      async function handleSubmit(event) {
           event.preventDefault();
-          const APIData = await createPost(
-               title,
-               price,
-               location,
-               description,
-               willDeliver
-          );
-          if (APIData.success) {
-               navigate('/');
-          } else {
-               setError(APIData.error.message);
+          async function newPost() {
+               const myPost = {
+                    title,
+                    description,
+                    price,
+                    location,
+                    willDeliver,
+               };
+               const result = await createPost(myPost, token);
+               const updatePosts = await fetchAllPosts();
+               setPosts(updatePosts.data.posts);
+               return result;
           }
+          newPost();
      }
 
      return (
@@ -38,12 +39,12 @@ export default function NewPost() {
                <h2>New Item Submission Form:</h2>
                <h4>(Redirects on success)</h4>
                <form className="formStyles" onSubmit={handleSubmit}>
-                    {error && (
+                    {/* {error && (
                          <p>
                               We're sorry, there's been an error with your
                               submission. Please try again l8r.
                          </p>
-                    )}
+                    )} */}
                     <label>Title </label>
                     <input
                          type="text"

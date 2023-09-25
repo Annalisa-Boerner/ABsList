@@ -44,8 +44,8 @@ export default function Register({ setToken }) {
      }
 
      return (
-          <section>
-               <h2>Log In, Friend-o</h2>
+          <section className="formstyles">
+               <h2>Register, New Friend</h2>
                {error && <h2>{error}</h2>}
 
                <form onSubmit={handleSubmit}>

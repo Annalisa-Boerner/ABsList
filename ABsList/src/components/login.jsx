@@ -44,7 +44,7 @@ export default function Login({ setToken }) {
      }
 
      return (
-          <section>
+          <section className="formstyles">
                <h2>Log In, Friend-o</h2>
                {error && <h2>{error}</h2>}
 

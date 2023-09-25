@@ -11,17 +11,6 @@ export async function fetchAllPosts() {
      }
 }
 
-// export async function fetchSinglePost(id) {
-//      try {
-//           const response = await fetch(`${base_url}/posts/${id}`);
-//           const result = await response.json();
-//           console.log(result);
-//           return result.data;
-//      } catch (error) {
-//           console.error(error);
-//      }
-// }
-
 export async function createPost(post, token) {
      try {
           const response = await fetch(`${base_url}/posts`, {
@@ -48,10 +37,7 @@ export async function createPost(post, token) {
      }
 }
 
-//hardcoded to edit exactly one post, lol (because my props experiments in jsx failed). search thunder for editable post
-
 export async function editPost(postId, post, token) {
-     console.log("line 54 in apiCalls: ", postId, post, token);
      try {
           const response = await fetch(`${base_url}/posts/${postId}`, {
                method: "PATCH",
@@ -62,7 +48,6 @@ export async function editPost(postId, post, token) {
                body: JSON.stringify(post),
           });
           const result = await response.json();
-          console.log(result);
           return result;
      } catch (error) {
           console.error(error);

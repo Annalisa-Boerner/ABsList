@@ -1,18 +1,13 @@
 import { useState, useEffect } from "react";
 import { fetchAllPosts } from "../../services/apiCalls";
-// import { useNavigate } from "react-router-dom";
 // import React from "react";
-// import App from "./../App";
-// import { deletePost } from "../../services/apiCalls";
-// import Post from "./post";
 import EditPost from "./editPost";
 import DeletePost from "./deletePost";
 
-//AllPost rendering, where I hoped to setPostId via props so that they could be shared with editForm
+//RENDER ALL POSTS AND PASS IN TOKEN FOR USE BY CHILDREN
 export default function AllPosts({ token }) {
      const [posts, setPosts] = useState([]);
      const [searchParam, setSearchParam] = useState("");
-     // const navigate = useNavigate();
 
      async function usefulPosts() {
           let postArray = await fetchAllPosts();
@@ -30,7 +25,7 @@ export default function AllPosts({ token }) {
 
      return (
           <div>
-               <h1>Welcome to AB List, your one stop used item shop!</h1>
+               <h2>Welcome to AB's List, your one stop used item shop!</h2>
                <div>
                     <label>
                          Search:{""}
@@ -47,7 +42,7 @@ export default function AllPosts({ token }) {
                </div>
                {postsToDisplay.map((post) => {
                     return (
-                         <div key={post._id}>
+                         <div key={post._id} className="post">
                               <h2>Title: {post.title}</h2>
                               <p>Description: {post.description}</p>
                               <p>Price: {post.price}</p>

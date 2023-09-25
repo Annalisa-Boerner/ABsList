@@ -10,37 +10,39 @@ import Register from "./components/register";
 import EditPost from "./components/editPost";
 
 function App() {
-     // const [postId, setPostId] = useState("");
-
      const [token, setToken] = useState("");
 
      return (
           <>
-               <NavBar id="navbar" />
-
-               <Routes>
-                    <Route path="/" element={<AllPosts token={token} />} />
-                    <Route
-                         path="/login"
-                         element={<Login setToken={setToken} />}
-                    />
-                    <Route
-                         path="/register"
-                         element={<Register setToken={setToken} />}
-                    />
-                    <Route
-                         path="/newpost"
-                         element={<NewPost token={token} />}
-                    />
-                    <Route
-                         path="/editpost"
-                         element={<EditPost token={token} />}
-                    />
-                    <Route
-                         path="/newpost"
-                         element={<NewPost token={token} />}
-                    />
-               </Routes>
+               <div>
+                    <NavBar id="navbar" />
+               </div>
+               <div className="mainApp">
+                    <Routes>
+                         <Route path="/" element={<AllPosts token={token} />} />
+                         <Route
+                              path="/login"
+                              element={<Login setToken={setToken} />}
+                         />
+                         <Route
+                              path="/register"
+                              element={<Register setToken={setToken} />}
+                         />
+                         <Route
+                              path="/newpost"
+                              element={<NewPost token={token} />}
+                         />
+                         <Route
+                              path="/editpost"
+                              element={
+                                   <EditPost
+                                        token={token}
+                                        setToken={setToken}
+                                   />
+                              }
+                         />
+                    </Routes>
+               </div>
           </>
      );
 }

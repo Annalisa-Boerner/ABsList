@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { editPost } from "../../services/apiCalls";
 
-export default function EditPost({ post, token }) {
+export default function EditPost({ post, token, setToken }) {
      const [title, setTitle] = useState("");
      const [price, setPrice] = useState("");
      const [location, setLocation] = useState("");
@@ -23,6 +23,7 @@ export default function EditPost({ post, token }) {
           };
           const editedPost = await editPost(post._id, updatedPost, token);
           nav(0);
+          setToken(token);
      }
      //FORM FOR EDITING
      return (
@@ -88,7 +89,7 @@ export default function EditPost({ post, token }) {
                     <br />
                     <br />
 
-                    <button>Submit</button>
+                    <button>Edit</button>
                </form>
           </section>
      );

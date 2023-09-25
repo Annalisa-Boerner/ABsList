@@ -35,7 +35,7 @@ export default function NewPost({ setPosts, token }) {
      }
 
      return (
-          <section>
+          <section className="formstyles">
                <h2>New Item Submission Form:</h2>
                <h4>(Redirects on success)</h4>
                <form className="formStyles" onSubmit={handleSubmit}>
